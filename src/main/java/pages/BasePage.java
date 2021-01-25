@@ -77,7 +77,7 @@ public class BasePage {
 	    rdoMale.click();//for selecting male
 
 	
-		//btnSignUp.click();
+		btnSignUp.click();
 		
 		
 	}
