@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<Configuration status="FINEST" >
+
+
+
+<Properties>
+    <Property name="basepath">./resources</Property>    
+  </Properties>
+  <Appenders>
+  	  <RollingFile name="File" fileName="${basepath}/resources/print.log"     filePattern="${basepath}/resources/print-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+           
+            <SizeBasedTriggeringPolicy size="500" />
+          </RollingFile>
+
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Logger name="myauto.firsttest" level="ALL" additivity="true">
+      <AppenderRef ref="${basepath}/resources/print.log"/>
+    </Logger>
+    <Root level="ALL">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
